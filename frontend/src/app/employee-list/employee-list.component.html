@@ -1,0 +1,40 @@
+<h2 class="listEmp">Employee List</h2>
+<button (click)="deleteAllEmployees()" class="btn btn-Alldanger">
+  Delete All Employees
+</button>
+<div class="searchInput">
+  <input type="text" [(ngModel)]="searchName" placeholder="Search by Name" />
+  <button (click)="searchEmployees()" class="srcBtn">Search</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Qualification</th>
+      <th>Location</th>
+      <th>Experience</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.age }}</td>
+      <td>{{ employee.qualification }}</td>
+      <td>{{ employee.location }}</td>
+      <td>{{ employee.experience }} Years</td>
+      <td>
+        <a
+          [routerLink]="['/employee-edit', employee._id]"
+          class="btn btn-primary"
+          >Edit</a
+        >
+
+        <button (click)="deleteEmployee(employee._id)" class="btn btn-danger">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
