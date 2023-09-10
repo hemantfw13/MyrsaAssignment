@@ -1,4 +1,3 @@
-// src/app/employee.model.ts
 
 export interface Employee {
   _id: string;

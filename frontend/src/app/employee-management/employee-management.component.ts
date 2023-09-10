@@ -40,9 +40,7 @@ export class EmployeeManagementComponent implements OnInit {
       this.employeeService
         .createEmployee(this.employeeForm.value)
         .subscribe(() => {
-          // After creating the employee, reload the employee list
           this.loadEmployeeList();
-          // Reset the form
           this.employeeForm.reset();
         });
     }

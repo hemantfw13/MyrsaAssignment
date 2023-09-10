@@ -11,8 +11,8 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeEditComponent implements OnInit {
   employeeForm: FormGroup;
-  employeeId!: string; // Initialize as an empty string
-  employee: Employee | null = null; // Initialize as null
+  employeeId!: string; 
+  employee: Employee | null = null; 
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +31,7 @@ export class EmployeeEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      this.employeeId = params.get('id') || ''; // Ensure a default value (empty string) if it's null
+      this.employeeId = params.get('id') || '';
       this.loadEmployee();
     });
   }

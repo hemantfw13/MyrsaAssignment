@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee.model';
 import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-employee-list',
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
   searchName = '';
-  filteredEmployees: Employee[] = []; // New property for filtered employees
+  filteredEmployees: Employee[] = []; 
 
   constructor(
     private employeeService: EmployeeService,
@@ -42,19 +42,16 @@ export class EmployeeListComponent implements OnInit {
   deleteAllEmployees(): void {
     if (confirm('Are you sure you want to delete all employees?')) {
       this.employeeService.deleteAllEmployees().subscribe(() => {
-        this.loadEmployees(); // Reload the list after deletion
+        this.loadEmployees(); 
       });
     }
   }
-  // New function to handle search
   searchEmployees(): void {
     if (this.searchName) {
-      // Filter employees based on the search keyword
       this.filteredEmployees = this.employees.filter((employee) =>
         employee.name.toLowerCase().includes(this.searchName.toLowerCase())
       );
     } else {
-      // If search input is empty, reset the filtered list to all employees
       this.filteredEmployees = [...this.employees];
     }
   }
