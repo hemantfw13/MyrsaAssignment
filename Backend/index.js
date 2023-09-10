@@ -1,7 +1,7 @@
 const express = require("express");
 const { dbConnection } = require("./config/db");
 const { employeeRouter } = require("./routes/employee.route");
-const cors = require("cors"); // Import the cors middleware
+const cors = require("cors"); 
 
 const app = express();
 
